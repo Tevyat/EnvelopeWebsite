@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Envelopes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="img-bg">
+    <div class="envelope" id="envelope">
+        <div class="text">
+            <h1 id="pixel">asd</h1>
+        </div>
+    </div>
+    <script>
+        const envelopeDict = {
+            "images/pink.png":"images/pink-2.png"
+        }
+
+        const chosenEnvelope = sessionStorage.getItem('chosenEnvelope');
+
+        const box = document.getElementById('envelope');
+        box.style.backgroundImage = `url(${envelopeDict[chosenEnvelope]})`;
+        
+        function displayRandomQuote() {
+            fetch('quotes.txt') 
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok. Status: ' + response.status);
+                    }
+                    return response.text(); 
+                })
+                .then(text => {
+                    const quotes = text.split('\n').filter(line => line.trim() !== ''); 
+                    if (quotes.length === 0) {
+                        console.error('No quotes found in the file.');
+                        return;
+                    }
+                    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; 
+                    const quoteElement = document.getElementById('pixel');
+                    if (quoteElement) {
+                        quoteElement.textContent = randomQuote; 
+                    } else {
+                        console.error('Element with ID "pixel" not found.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Failed to fetch or process quotes:', error);
+                });
+        }
+
+        displayRandomQuote();
+        
+    </script>
+</body>
+
+</html>
+

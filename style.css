@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.img-bg {
+    background: url('images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-position: center;
+}    
+
+#pixel {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 20px;
+  font-weight: 40px;
+  font-style: normal;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 80%;
+    height: 80%;
+    max-width: 650px;
+    max-height: 900px;
+    aspect-ratio: 1;
+    background-color: rgba(249, 161, 173, 0.378);
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.box {
+    width: 80%;
+    height: 80%;
+    aspect-ratio: 1;
+    padding: 10px;
+    background-color: rgba(249, 161, 173, 0.378);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.item:hover {
+    transform: scale(1.2);
+}
+
+.envelope {
+    width: 90%;
+    height: 90%;
+    max-width: 600px;
+    max-height: 700px;  
+    background: no-repeat center center;  
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    margin-top: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 40%;
+    word-break: break-all;
+}

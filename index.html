@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Envelopes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="img-bg">
+    <div class="grid img-box">
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+        <div class="item">
+            <a href="page.html"><img src=""></a>
+        </div>
+    </div>
+    <script> 
+        const images = [
+            'images/pink.png',
+            'images/lightblue.png',
+            'images/pink.png',
+            'images/lightblue.png',
+            'images/pink.png',
+            'images/lightblue.png',
+            'images/pink.png',
+            'images/lightblue.png',
+            'images/pink.png'
+        ];
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        shuffle(images);
+
+        const gridItems = document.querySelectorAll('.item img');
+        gridItems.forEach((item, index) => {
+            item.src = images[index];
+        });
+
+        gridItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                sessionStorage.setItem('chosenEnvelope', images[index]);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
