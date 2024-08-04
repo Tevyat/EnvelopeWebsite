@@ -14,46 +14,7 @@
             <h1 id="pixel">asd</h1>
         </div>
     </div>
-    <script>
-        const envelopeDict = {
-            "images/pink.png":"images/pink-2.png"
-        }
-
-        const chosenEnvelope = sessionStorage.getItem('chosenEnvelope');
-
-        const box = document.getElementById('envelope');
-        box.style.backgroundImage = `url(${envelopeDict[chosenEnvelope]})`;
-        
-        function displayRandomQuote() {
-            fetch('quotes.txt') 
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok. Status: ' + response.status);
-                    }
-                    return response.text(); 
-                })
-                .then(text => {
-                    const quotes = text.split('\n').filter(line => line.trim() !== ''); 
-                    if (quotes.length === 0) {
-                        console.error('No quotes found in the file.');
-                        return;
-                    }
-                    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; 
-                    const quoteElement = document.getElementById('pixel');
-                    if (quoteElement) {
-                        quoteElement.textContent = randomQuote; 
-                    } else {
-                        console.error('Element with ID "pixel" not found.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Failed to fetch or process quotes:', error);
-                });
-        }
-
-        displayRandomQuote();
-        
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
